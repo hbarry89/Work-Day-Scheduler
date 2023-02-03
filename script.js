@@ -58,12 +58,23 @@ var dayMonth = dayjs().format('dddd, MMMM DD');
 //This will dispalay the current date on the webpage
 $('#currentDay').text(dayMonth);
 
+$(document).ready(function() {
 $('.saveBtn').on('click', function () {
   var value = $(this).siblings('.description').val();
-  var key = $(this).parent().atr('id');
+  var key = $(this).parent().attr('id');
 
-  localStorage.getItem(key, value);
+  localStorage.setItem(key, value);
   localStorage.getItem(value);
 });
 
+document.querySelector('row9').value = localStorage.getItem('hour-9');
+document.querySelector('row10').value = localStorage.getItem('hour-10');
+document.querySelector('row11').value = localStorage.getItem('hour-11');
+document.querySelector('row12').value = localStorage.getItem('hour-12');
+document.querySelector('row13').value = localStorage.getItem('hour-13');
+document.querySelector('row14').value = localStorage.getItem('hour-14');
+document.querySelector('row15').value = localStorage.getItem('hour-15');
+document.querySelector('row16').value = localStorage.getItem('hour-16');
+document.querySelector('row17').value = localStorage.getItem('hour-17');
 
+});
