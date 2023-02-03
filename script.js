@@ -57,3 +57,13 @@
 var dayMonth = dayjs().format('dddd, MMMM DD');
 //This will dispalay the current date on the webpage
 $('#currentDay').text(dayMonth);
+
+$('.saveBtn').on('click', function () {
+  var value = $(this).siblings('.description').val();
+  var key = $(this).parent().atr('id');
+
+  localStorage.getItem(key, value);
+  localStorage.getItem(value);
+});
+
+
