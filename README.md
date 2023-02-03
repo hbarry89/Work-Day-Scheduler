@@ -16,8 +16,9 @@
 ## Credit
 
 ### Resources
-- Bootcamp Materials
-- W3 Schools
+- Bootcamp Materials and Zoom recordings
+- Worked with tutor and study group.
+- [day.js](https://day.js.org/docs/en/display/format) library and documentation.
 
 ### Applications Used
 - VS Code
