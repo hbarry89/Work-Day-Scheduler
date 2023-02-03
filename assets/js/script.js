@@ -54,7 +54,7 @@
 //});
 
 //This variable declares the current date from the dayjs library with adjusted format
-var dayMonth = dayjs().format('dddd, MMMM DD');
+var dayMonth = dayjs().format('dddd, MMMM Do');
 //This will dispalay the current date on the webpage
 $('#currentDay').text(dayMonth);
 
@@ -83,3 +83,31 @@ document.querySelector('row17').value = localStorage.getItem('hour-17');
 
 //dayjs().hour() // gets current hour
 //newDate = dayjs().hour(12) // returns new dayjs object
+
+// if currentHour > timeBlock (set class to past = grey background)
+    // else if currentHour < timeBlock (set class to future = green) background
+        // else (set class it as present = red background)
+
+          // function hourBlock() {
+          //   if (currentHour > timeBlock) {
+
+          //   } else {
+
+          //   }
+          // }
+          
+          // var gray = document.querySelector(".past");
+          // var red = document.querySelector(".present");
+          // var green = document.querySelector(".future");
+          // // Define the condition
+          // var colorCondition = true;
+          
+          // // Change the color based on the condition
+          // if (colorCondition) {
+          //   element.style.color = "red";
+          // } else {
+          //   element.style.color = "blue";
+          // }
+
+          // textcontent
+          // append
