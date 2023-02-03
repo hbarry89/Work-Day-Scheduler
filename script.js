@@ -27,8 +27,6 @@
                 // else (set class it as present = red background)
 //----------------------End of Pseudo Code---------------------------
 
-
-
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -54,60 +52,51 @@
 //});
 
 //This variable declares the current date from the dayjs library with adjusted format
-var dayMonth = dayjs().format('dddd, MMMM Do');
+var dayMonth = dayjs().format('dddd, MMMM DD');
+var currentHour = dayjs().hour() // gets current hour
+
 //This will dispalay the current date on the webpage
 $('#currentDay').text(dayMonth);
 
 //This is to connect to local storage function
 $(document).ready(function() {
-  //Event lsitener (on) for each save button
+
+$('.time-block').each(function(){ //This targets each time block class in the HTML file
+  var timeNow = parseInt(this.id.split("-")[1]) //Variable is declared in order to parse the div id to target only the integers each row for the time bloacks:(past, present, future) for the if statemet
+  //If statement to change class in HTML file based on conditionals below:
+  if (timeNow < currentHour) { //If time now is less than the current hour assign a class with past to parent div in the HTML file to the row to turn color to gray according to css file class
+    this.classList.add("past");
+    this.classList.remove("present");
+    this.classList.remove("future");
+  } else if (timeNow == currentHour) { //If time now matches the current hour assign a class with present to the parent div in the HTML file to the row to turn color to red according to css file class
+    this.classList.add("present");
+    this.classList.remove("past");
+    this.classList.remove("future");
+  } else { //If time now is greater than the current hour assign a class with future to the parent div in the HTML file to the row to turn color to green according to css file class
+    this.classList.add("future");
+    this.classList.remove("present");
+    this.classList.remove("past");
+  }
+})
+
+//Event lsitener (on) for each save button
 $('.saveBtn').on('click', function () {
   var value = $(this).siblings('.description').val(); //This this function targets the sibling with "description" class in HTML file and input value
   var key = $(this).parent().attr('id'); //This targets the div parent in the HTML file by its id attribute.
-//This is for the buttons to save into the local storage when user inserts input and clicks save
+
+  //This is for the buttons to save into the local storage when user inserts input and clicks save
   localStorage.setItem(key, value);
   localStorage.getItem(value);
 });
+
 //This targets each row by id on the HTML file to get the value and assign it to corresponding local storage.
-document.querySelector('row9').value = localStorage.getItem('hour-9');
-document.querySelector('row10').value = localStorage.getItem('hour-10');
-document.querySelector('row11').value = localStorage.getItem('hour-11');
-document.querySelector('row12').value = localStorage.getItem('hour-12');
-document.querySelector('row13').value = localStorage.getItem('hour-13');
-document.querySelector('row14').value = localStorage.getItem('hour-14');
-document.querySelector('row15').value = localStorage.getItem('hour-15');
-document.querySelector('row16').value = localStorage.getItem('hour-16');
-document.querySelector('row17').value = localStorage.getItem('hour-17');
-
+document.querySelector('#row9').value = localStorage.getItem('hour-9');
+document.querySelector('#row10').value = localStorage.getItem('hour-10');
+document.querySelector('#row11').value = localStorage.getItem('hour-11');
+document.querySelector('#row12').value = localStorage.getItem('hour-12');
+document.querySelector('#row13').value = localStorage.getItem('hour-13');
+document.querySelector('#row14').value = localStorage.getItem('hour-14');
+document.querySelector('#row15').value = localStorage.getItem('hour-15');
+document.querySelector('#row16').value = localStorage.getItem('hour-16');
+document.querySelector('#row17').value = localStorage.getItem('hour-17');
 });
-
-//dayjs().hour() // gets current hour
-//newDate = dayjs().hour(12) // returns new dayjs object
-
-// if currentHour > timeBlock (set class to past = grey background)
-    // else if currentHour < timeBlock (set class to future = green) background
-        // else (set class it as present = red background)
-
-          // function hourBlock() {
-          //   if (currentHour > timeBlock) {
-
-          //   } else {
-
-          //   }
-          // }
-          
-          // var gray = document.querySelector(".past");
-          // var red = document.querySelector(".present");
-          // var green = document.querySelector(".future");
-          // // Define the condition
-          // var colorCondition = true;
-          
-          // // Change the color based on the condition
-          // if (colorCondition) {
-          //   element.style.color = "red";
-          // } else {
-          //   element.style.color = "blue";
-          // }
-
-          // textcontent
-          // append
