@@ -58,15 +58,17 @@ var dayMonth = dayjs().format('dddd, MMMM DD');
 //This will dispalay the current date on the webpage
 $('#currentDay').text(dayMonth);
 
+//This is to connect to local storage function
 $(document).ready(function() {
+  //Event lsitener (on) for each save button
 $('.saveBtn').on('click', function () {
-  var value = $(this).siblings('.description').val();
-  var key = $(this).parent().attr('id');
-
+  var value = $(this).siblings('.description').val(); //This this function targets the sibling with "description" class in HTML file and input value
+  var key = $(this).parent().attr('id'); //This targets the div parent in the HTML file by its id attribute.
+//This is for the buttons to save into the local storage when user inserts input and clicks save
   localStorage.setItem(key, value);
   localStorage.getItem(value);
 });
-
+//This targets each row by id on the HTML file to get the value and assign it to corresponding local storage.
 document.querySelector('row9').value = localStorage.getItem('hour-9');
 document.querySelector('row10').value = localStorage.getItem('hour-10');
 document.querySelector('row11').value = localStorage.getItem('hour-11');
@@ -78,3 +80,6 @@ document.querySelector('row16').value = localStorage.getItem('hour-16');
 document.querySelector('row17').value = localStorage.getItem('hour-17');
 
 });
+
+//dayjs().hour() // gets current hour
+//newDate = dayjs().hour(12) // returns new dayjs object
