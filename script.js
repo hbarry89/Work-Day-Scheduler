@@ -51,15 +51,14 @@
   // TODO: Add code to display the current date in the header of the page.
 //});
 
+//This is to wrap the whole js code for it to wait for the html to render
+$(document).ready(function() {
 //This variable declares the current date from the dayjs library with adjusted format
 var dayMonth = dayjs().format('dddd, MMMM DD');
 var currentHour = dayjs().hour() // gets current hour
 
 //This will dispalay the current date on the webpage
 $('#currentDay').text(dayMonth);
-
-//This is to connect to local storage function
-$(document).ready(function() {
 
 $('.time-block').each(function(){ //This targets each time block class in the HTML file
   var timeNow = parseInt(this.id.split("-")[1]) //Variable is declared in order to parse the div id to target only the integers each row for the time bloacks:(past, present, future) for the if statemet
