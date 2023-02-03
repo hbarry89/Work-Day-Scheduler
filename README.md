@@ -13,9 +13,13 @@
 
 <img src="demo-images/demo1.png" width="600" height="200">
 
+------------------------------------------------------------------------------------------------------
+
 - Input is stored into the local storage and stays on page after refreshing:
 
 <img src="demo-images/demo2.png" width="600" height="200">
+
+------------------------------------------------------------------------------------------------------
 
 - Color coding is showing based on your current time. Here time in red reflecting the current time (passed time is grayed out):
 
